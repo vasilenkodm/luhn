@@ -1,7 +1,7 @@
 package luhn
 
 type Number interface {
-	int | uint | int64 | uint64
+	~int | ~uint | ~int64 | ~uint64
 }
 
 // CalculateLuhn return the check number
