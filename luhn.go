@@ -1,24 +1,26 @@
 package luhn
 
-type Number uint64
+type Number interface {
+	int | uint | int64 | uint64
+}
 
 // CalculateLuhn return the check number
-func CalculateLuhn(number Number) Number {
+func CalculateLuhn[T Number](number T) T {
 	checkNumber := checksum(number)
 
-	if checkNumber == 0 {
+	if checkNumber == T(0) {
 		return 0
 	}
-	return Number(10) - checkNumber
+	return T(10) - checkNumber
 }
 
 // Valid check number is valid or not based on Luhn algorithm
-func Valid(number Number) bool {
+func Valid[T Number](number T) bool {
 	return (number%10+checksum(number/10))%10 == 0
 }
 
-func checksum(number Number) Number {
-	var luhn Number
+func checksum[T Number](number T) T {
+	var luhn T
 
 	for i := 0; number > 0; i++ {
 		cur := number % 10

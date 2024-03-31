@@ -3,7 +3,7 @@ package luhn
 import "testing"
 
 func TestLuhn(t *testing.T) {
-	validNumbers := []Number{79927398713,
+	validNumbers := []uint64{79927398713,
 		4929972884676289,
 		4532733309529845,
 		4539088167512356,
