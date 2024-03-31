@@ -5,7 +5,7 @@ Generating check number & validating Luhn numbers in GO
 # Usage
 
 ```go
-import "github.com/theplant/luhn"
+import "https://github.com/vasilenkodm/luhn"
 
 func main() {
 	// Checking if a string is a valid luhn
