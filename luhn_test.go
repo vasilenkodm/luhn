@@ -55,3 +55,22 @@ func TestLuhn(t *testing.T) {
 		}
 	}
 }
+
+func TestInheritance(t *testing.T) {
+	type MyID int64
+	validNumbers := []MyID{
+		9278923470,
+		12345678903,
+		346436439,
+	}
+
+	for _, number := range validNumbers {
+		if !Valid(number) {
+			t.Errorf("%v should be valid", number)
+		}
+
+		if CalculateLuhn(number/10) != number%10 {
+			t.Errorf("%v's check number should be %v, but got %v", number, number%10, CalculateLuhn(number/10))
+		}
+	}
+}
